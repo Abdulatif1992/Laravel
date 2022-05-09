@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/company','App\Http\Controllers\CompanyController@index');
+Route::get('/company','App\Http\Controllers\CompanyController@index')->middleware('is_admin');
 Route::get('/company/{id}','App\Http\Controllers\CompanyController@view');
 
 Auth::routes();
@@ -26,3 +26,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/ajax-form', 'App\Http\Controllers\CompanyController@ajax_form');
 Route::get('/ajax', 'App\Http\Controllers\CompanyController@ajax');
+
+Route::get('/admin','App\Http\Controllers\CompanyController@admin')->name('admin')->middleware('is_admin');
+;

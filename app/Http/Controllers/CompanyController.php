@@ -36,4 +36,10 @@ class CompanyController extends Controller
         
         return response()->json(['result'=>$request->file]);
     }
+
+    public function Admin()
+    {
+
+        return view('admin.adminHome');
+    }
 }
